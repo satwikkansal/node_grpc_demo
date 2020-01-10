@@ -18,10 +18,9 @@ const PORT = 50051 || process.env.PORT
 const server = new grpc.Server()
 
 server.addService(proto.versionpb.API.service, {
-    GetVersion(call, cb) {
-    console.log(call.request)
-    const res = CURRENT_VERSION
-    cb(null, res)
+    GetVersion(call, callback) {
+    let res = CURRENT_VERSION
+    callback(null, res)
   }
 })
 
